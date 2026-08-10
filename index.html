@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AnimalTrack</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- BARRA SUPERIOR -->
+<header class="topbar">
+
+    <div class="logo">
+        🐄 <span>AnimalTrack</span>
+    </div>
+
+    <div class="user">
+        Sistema de gestión ganadera
+    </div>
+
+</header>
+
+
+<!-- ESTRUCTURA PRINCIPAL -->
+<div class="layout">
+
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+
+        <button class="menu-button active">
+            🏠 <span>Inicio</span>
+        </button>
+
+        <button class="menu-button">
+            🐄 <span>Animales</span>
+        </button>
+
+        <button class="menu-button">
+            ➕ <span>Agregar animal</span>
+        </button>
+
+        <button class="menu-button">
+            ⚠️ <span>Alertas</span>
+        </button>
+
+        <button class="menu-button">
+            📊 <span>Datos</span>
+        </button>
+
+        <button class="menu-button">
+            🤖 <span>Análisis IA</span>
+        </button>
+
+        <button class="menu-button">
+            ℹ️ <span>Sobre el proyecto</span>
+        </button>
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+    <main class="content">
+
+
+        <!-- ==================== -->
+        <!-- PÁGINA DE INICIO -->
+        <!-- ==================== -->
+
+        <section id="inicio" class="page-section">
+
+            <section class="welcome">
+
+                <h1>
+                    Bienvenido a AnimalTrack
+                </h1>
+
+                <p>
+                    Sistema inteligente de identificación
+                    y monitoreo de ganado.
+                </p>
+
+            </section>
+
+
+            <!-- TARJETAS PRINCIPALES -->
+            <section class="cards">
+
+
+                <!-- ANIMALES -->
+                <div class="card">
+
+                    <div class="card-icon">
+                        🐄
+                    </div>
+
+                    <h2>
+                        Animales
+                    </h2>
+
+                    <p>
+                        Consultá la información y el historial
+                        de cada animal registrado.
+                    </p>
+
+                    <button onclick="mostrarSeccion('animales')">
+                        Ver animales
+                    </button>
+
+                </div>
+
+
+                <!-- ALERTAS -->
+                <div class="card">
+
+                    <div class="card-icon">
+                        ⚠️
+                    </div>
+
+                    <h2>
+                        Alertas
+                    </h2>
+
+                    <p>
+                        Revisá los animales que presentan
+                        posibles anomalías.
+                    </p>
+
+                    <button>
+                        Ver alertas
+                    </button>
+
+                </div>
+
+
+                <!-- IA -->
+                <div class="card">
+
+                    <div class="card-icon">
+                        🤖
+                    </div>
+
+                    <h2>
+                        Análisis IA
+                    </h2>
+
+                    <p>
+                        Analizá los datos registrados para
+                        detectar posibles anomalías.
+                    </p>
+
+                    <button>
+                        Ver análisis
+                    </button>
+
+                </div>
+
+
+                <!-- AGREGAR ANIMAL -->
+                <div class="card">
+
+                    <div class="card-icon">
+                        ➕
+                    </div>
+
+                    <h2>
+                        Agregar animal
+                    </h2>
+
+                    <p>
+                        Registrá un nuevo animal utilizando
+                        su número de chip.
+                    </p>
+
+                    <button>
+                        Agregar
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- INFORMACIÓN DEL PROYECTO -->
+            <section class="info-box">
+
+                <h2>
+                    ¿Cómo funciona AnimalTrack?
+                </h2>
+
+                <p>
+                    Cada animal posee un chip de identificación
+                    que puede ser leído mediante un lector RFID.
+                    Los datos registrados podrán ser consultados
+                    desde esta plataforma.
+                </p>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ==================== -->
+        <!-- PÁGINA DE ANIMALES -->
+        <!-- ==================== -->
+
+        <section
+            id="animales"
+            class="page-section"
+            style="display: none;"
+        >
+
+            <section class="welcome">
+
+                <h1>
+                    Animales registrados
+                </h1>
+
+                <p>
+                    Buscá un animal utilizando su número de chip.
+                </p>
+
+            </section>
+
+
+            <!-- BUSCADOR -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="buscador"
+                    placeholder="🔍 Buscar por número de chip..."
+                >
+
+            </div>
+
+
+            <!-- LISTA DE ANIMALES -->
+            <div id="lista-animales">
+
+
+                <!-- ANIMAL 001 -->
+                <div class="animal-card">
+
+                    <h2>
+                        Chip Nº 001
+                    </h2>
+
+                    <p>
+                        <strong>Edad:</strong>
+                        3 años
+                    </p>
+
+                    <p>
+                        <strong>Peso:</strong>
+                        420 kg
+                    </p>
+
+                    <p>
+                        <strong>Raza:</strong>
+                        Angus
+                    </p>
+
+                    <button>
+                        Ver perfil
+                    </button>
+
+                </div>
+
+
+                <!-- ANIMAL 002 -->
+                <div class="animal-card">
+
+                    <h2>
+                        Chip Nº 002
+                    </h2>
+
+                    <p>
+                        <strong>Edad:</strong>
+                        5 años
+                    </p>
+
+                    <p>
+                        <strong>Peso:</strong>
+                        510 kg
+                    </p>
+
+                    <p>
+                        <strong>Raza:</strong>
+                        Hereford
+                    </p>
+
+                    <button>
+                        Ver perfil
+                    </button>
+
+                </div>
+
+
+                <!-- ANIMAL 003 -->
+                <div class="animal-card">
+
+                    <h2>
+                        Chip Nº 003
+                    </h2>
+
+                    <p>
+                        <strong>Edad:</strong>
+                        2 años
+                    </p>
+
+                    <p>
+                        <strong>Peso:</strong>
+                        385 kg
+                    </p>
+
+                    <p>
+                        <strong>Raza:</strong>
+                        Holando
+                    </p>
+
+                    <button>
+                        Ver perfil
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================== -->
+        <!-- SOBRE EL PROYECTO -->
+        <!-- ========================== -->
+
+        <section
+            id="sobre-proyecto"
+            class="page-section"
+            style="display: none;"
+        >
+
+            <section class="welcome">
+
+                <h1>
+                    🌱 Sobre el proyecto
+                </h1>
+
+                <p>
+                    Conocé AnimalTrack y nuestro objetivo.
+                </p>
+
+            </section>
+
+
+            <section class="info-box">
+
+                <h2>
+                    ¿Qué es AnimalTrack?
+                </h2>
+
+                <p>
+                    AnimalTrack es un proyecto desarrollado por
+                    Sofía, Romina y Gabriel, estudiantes de 9no
+                    del Colegio Teresiano de Rivera, en el marco
+                    de las Olimpíadas de Robótica, cuya temática
+                    es “Territorios Vivos”.
+                </p>
+
+                <p>
+                    Nuestro proyecto busca aplicar la robótica,
+                    la programación y la tecnología a la ganadería
+                    para crear una forma más eficiente y
+                    personalizada de alimentar y monitorear
+                    al ganado.
+                </p>
+
+            </section>
+
+
+            <section class="info-box">
+
+                <h2>
+                    💡 ¿Por qué creamos AnimalTrack?
+                </h2>
+
+                <p>
+                    La idea surgió de nuestro interés por aplicar
+                    la tecnología a una actividad muy importante
+                    de nuestro entorno: la ganadería.
+                </p>
+
+                <p>
+                    Observamos que controlar individualmente a
+                    cada animal puede requerir mucho tiempo y
+                    trabajo, especialmente cuando se trata de
+                    conocer su peso, alimentación y evolución.
+                </p>
+
+            </section>
+
+
+            <section class="info-box">
+
+                <h2>
+                    🤖 ¿Cómo funciona?
+                </h2>
+
+                <p>
+                    Cada vaca posee una caravana con tecnología
+                    RFID que permite identificarla de forma
+                    individual.
+                </p>
+
+                <p>
+                    Cuando el animal ingresa al comedero,
+                    el sistema reconoce su identificación y
+                    registra su peso. Con los datos almacenados
+                    sobre ese animal, AnimalTrack puede determinar
+                    la cantidad de alimento que corresponde y
+                    activar automáticamente el mecanismo que
+                    dispensa su ración.
+                </p>
+
+                <p>
+                    Toda la información se registra en una página
+                    web, donde el productor puede consultar el
+                    perfil de cada animal, su peso, evolución,
+                    alimentación, notas y posibles alertas.
+                </p>
+
+            </section>
+
+
+            <section class="info-box">
+
+                <h2>
+                    🎯 ¿Qué buscamos lograr?
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Personalizar la alimentación de cada animal.
+                    </li>
+
+                    <li>
+                        Reducir el desperdicio de alimento.
+                    </li>
+
+                    <li>
+                        Disminuir la competencia entre animales.
+                    </li>
+
+                    <li>
+                        Facilitar el trabajo del productor.
+                    </li>
+
+                    <li>
+                        Mejorar el seguimiento individual del ganado.
+                    </li>
+
+                    <li>
+                        Contribuir al bienestar animal.
+                    </li>
+
+                    <li>
+                        Utilizar los datos para tomar mejores decisiones.
+                    </li>
+
+                </ul>
+
+                <p>
+                    Nuestro objetivo no es reemplazar el trabajo
+                    de las personas, sino utilizar la tecnología
+                    como una herramienta de apoyo, haciendo que
+                    algunas tareas sean más eficientes y
+                    permitiendo que el productor tenga información
+                    más completa sobre sus animales.
+                </p>
+
+            </section>
+
+
+            <section class="info-box">
+
+                <h2>
+                    🌎 AnimalTrack y “Territorios Vivos”
+                </h2>
+
+                <p>
+                    Relacionamos nuestro proyecto con
+                    “Territorios Vivos” porque creemos que la
+                    tecnología puede ayudar a construir una
+                    producción ganadera más eficiente y
+                    responsable, buscando un equilibrio entre
+                    la producción, el cuidado de los animales y
+                    el aprovechamiento de los recursos.
+                </p>
+
+                <p>
+                    AnimalTrack representa nuestra idea de que
+                    la innovación también puede aplicarse al
+                    campo y ayudar a enfrentar problemas reales
+                    de nuestro entorno.
+                </p>
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
