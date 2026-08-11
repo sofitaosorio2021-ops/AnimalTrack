@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AnimalTrack</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+
+        <div class="logo">
+            🐄 <span>AnimalTrack</span>
+        </div>
+
+        <div class="user">
+            Sistema de gestión ganadera
+        </div>
+
+    </header>
+
+
+    <!-- ESTRUCTURA PRINCIPAL -->
+    <div class="layout">
+
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <button class="menu-button active" onclick="mostrarSeccion('inicio')">
+                🏠 <span>Inicio</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('animales')">
+                🐄 <span>Animales</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('agregar')">
+                ➕ <span>Agregar animal</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('alertas')">
+                ⚠️ <span>Alertas</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('datos')">
+                📊 <span>Datos</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('ia')">
+                🤖 <span>Análisis IA</span>
+            </button>
+
+            <button class="menu-button" onclick="mostrarSeccion('sobre')">
+                ℹ️ <span>Sobre el proyecto</span>
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="content">
+
+
+            <!-- ========================= -->
+            <!-- INICIO -->
+            <!-- ========================= -->
+
+            <section id="inicio" class="page-section">
+
+                <section class="welcome">
+
+                    <h1>Bienvenido a AnimalTrack</h1>
+
+                    <p>
+                        Sistema inteligente de identificación
+                        y monitoreo de ganado.
+                    </p>
+
+                </section>
+
+
+                <section class="cards">
+
+
+                    <!-- ANIMALES -->
+                    <div class="card">
+
+                        <div class="card-icon">
+                            🐄
+                        </div>
+
+                        <h2>
+                            Animales
+                        </h2>
+
+                        <p>
+                            Consultá la información y el historial
+                            de cada animal registrado.
+                        </p>
+
+                        <button onclick="mostrarSeccion('animales')">
+                            Ver animales
+                        </button>
+
+                    </div>
+
+
+                    <!-- ALERTAS -->
+                    <div class="card">
+
+                        <div class="card-icon">
+                            ⚠️
+                        </div>
+
+                        <h2>
+                            Alertas
+                        </h2>
+
+                        <p>
+                            Revisá los animales que presentan
+                            posibles anomalías.
+                        </p>
+
+                        <button onclick="mostrarSeccion('alertas')">
+                            Ver alertas
+                        </button>
+
+                    </div>
+
+
+                    <!-- IA -->
+                    <div class="card">
+
+                        <div class="card-icon">
+                            🤖
+                        </div>
+
+                        <h2>
+                            Análisis IA
+                        </h2>
+
+                        <p>
+                            Analizá los datos registrados para
+                            detectar posibles anomalías.
+                        </p>
+
+                        <button onclick="mostrarSeccion('ia')">
+                            Ver análisis
+                        </button>
+
+                    </div>
+
+
+                    <!-- AGREGAR -->
+                    <div class="card">
+
+                        <div class="card-icon">
+                            ➕
+                        </div>
+
+                        <h2>
+                            Agregar animal
+                        </h2>
+
+                        <p>
+                            Registrá un nuevo animal utilizando
+                            su número de chip.
+                        </p>
+
+                        <button onclick="mostrarSeccion('agregar')">
+                            Agregar
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <section class="info-box">
+
+                    <h2>
+                        ¿Cómo funciona AnimalTrack?
+                    </h2>
+
+                    <p>
+                        Cada animal posee una caravana con un identificador
+                        RFID. Cuando la vaca ingresa al comedero, el sistema
+                        reconoce su chip, registra su peso y procesa la
+                        información correspondiente.
+                    </p>
+
+                    <p>
+                        Los datos quedan registrados en la plataforma para
+                        facilitar el monitoreo del ganado y detectar posibles
+                        anomalías.
+                    </p>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- ANIMALES -->
+            <!-- ========================= -->
+
+            <section id="animales" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        Animales registrados
+                    </h1>
+
+                    <p>
+                        Buscá un animal utilizando su número de chip.
+                    </p>
+
+                </section>
+
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="buscador"
+                        placeholder="🔍 Buscar por número de chip..."
+                    >
+
+                </div>
+
+
+                <div id="lista-animales">
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- PERFIL DEL ANIMAL -->
+            <!-- ========================= -->
+
+            <section id="perfil-animal" class="page-section" style="display: none;">
+
+                <div id="contenido-perfil">
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- AGREGAR ANIMAL -->
+            <!-- ========================= -->
+
+            <section id="agregar" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        Agregar animal
+                    </h1>
+
+                    <p>
+                        Registrá un nuevo animal mediante su número de chip.
+                    </p>
+
+                </section>
+
+
+                <div class="info-box">
+
+                    <h2>Datos del animal</h2>
+
+                    <label>
+                        Número de chip
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nuevo-chip"
+                        placeholder="Ejemplo: 004"
+                    >
+
+
+                    <label>
+                        Peso actual (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="nuevo-peso"
+                        placeholder="Ejemplo: 450"
+                    >
+
+
+                    <label>
+                        Edad
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nuevo-edad"
+                        placeholder="Ejemplo: 3 años"
+                    >
+
+
+                    <label>
+                        Raza
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nuevo-raza"
+                        placeholder="Ejemplo: Hereford"
+                    >
+
+
+                    <label>
+                        Origen (opcional)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nuevo-origen"
+                        placeholder="Ejemplo: Campo La Esperanza"
+                    >
+
+
+                    <label>
+                        Vacunas (opcional)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nuevo-vacunas"
+                        placeholder="Ejemplo: Vacuna X"
+                    >
+
+
+                    <button onclick="agregarAnimal()">
+                        ➕ Registrar animal
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- ALERTAS -->
+            <!-- ========================= -->
+
+            <section id="alertas" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        ⚠️ Alertas
+                    </h1>
+
+                    <p>
+                        Animales que presentan cambios importantes en sus registros.
+                    </p>
+
+                </section>
+
+                <div id="lista-alertas">
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- DATOS -->
+            <!-- ========================= -->
+
+            <section id="datos" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        📊 Datos generales
+                    </h1>
+
+                    <p>
+                        Resumen de la información registrada en AnimalTrack.
+                    </p>
+
+                </section>
+
+                <div id="resumen-datos">
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- INTELIGENCIA ARTIFICIAL -->
+            <!-- ========================= -->
+
+            <section id="ia" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        🤖 Análisis IA
+                    </h1>
+
+                    <p>
+                        Consultá información sobre un animal utilizando su número de chip.
+                    </p>
+
+                </section>
+
+
+                <div class="info-box">
+
+                    <h2>
+                        Consultar un animal
+                    </h2>
+
+                    <p>
+                        Podés preguntarle al sistema sobre el peso, evolución
+                        y posibles anomalías registradas.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="ia-chip"
+                        placeholder="Ejemplo: 003"
+                    >
+
+                    <input
+                        type="text"
+                        id="ia-pregunta"
+                        placeholder="Ejemplo: ¿Cómo evolucionó su peso?"
+                    >
+
+                    <button onclick="consultarIA()">
+                        🤖 Analizar
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="resultado-ia"
+                    class="info-box"
+                    style="display: none;"
+                >
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================= -->
+            <!-- SOBRE EL PROYECTO -->
+            <!-- ========================= -->
+
+            <section id="sobre" class="page-section" style="display: none;">
+
+                <section class="welcome">
+
+                    <h1>
+                        ℹ️ Sobre el proyecto
+                    </h1>
+
+                    <p>
+                        Conocé el proyecto AnimalTrack.
+                    </p>
+
+                </section>
+
+
+                <div class="info-box">
+
+                    <h2>
+                        🐄 AnimalTrack
+                    </h2>
+
+                    <p>
+                        AnimalTrack es un sistema inteligente de identificación,
+                        monitoreo y alimentación automatizada para ganado.
+                    </p>
+
+                    <p>
+                        El sistema utiliza tecnología RFID para identificar
+                        individualmente a cada animal. Al ingresar al comedero,
+                        se registra su peso y se procesan sus datos para determinar
+                        la alimentación correspondiente.
+                    </p>
+
+                    <p>
+                        La información se almacena en una página web donde el
+                        productor puede consultar el historial de cada animal,
+                        observar su evolución de peso y recibir alertas ante
+                        posibles anomalías.
+                    </p>
+
+
+                    <h2>
+                        🌱 Territorios Vivos
+                    </h2>
+
+                    <p>
+                        Este proyecto fue desarrollado para participar en las
+                        Olimpíadas de Robótica bajo la temática
+                        <strong>Territorios Vivos</strong>.
+                    </p>
+
+
+                    <h2>
+                        👩‍💻 ¿Quiénes somos?
+                    </h2>
+
+                    <p>
+                        Somos estudiantes de 9.º 2 del
+                        <strong>Colegio Teresiano de Rivera</strong>.
+                    </p>
+
+                    <p>
+                        <strong>Integrantes:</strong>
+                    </p>
+
+                    <ul>
+                        <li>Sofía</li>
+                        <li>Romina</li>
+                        <li>Gabriel</li>
+                    </ul>
+
+
+                    <h2>
+                        💡 ¿Por qué nos interesó este proyecto?
+                    </h2>
+
+                    <p>
+                        Nos interesó aplicar la tecnología y la robótica
+                        a la ganadería para buscar soluciones que faciliten
+                        el trabajo en el campo, reduzcan el desperdicio de
+                        alimento y favorezcan el bienestar de los animales.
+                    </p>
+
+
+                    <h2>
+                        ⚙️ Tecnologías utilizadas
+                    </h2>
+
+                    <ul>
+                        <li>Arduino UNO</li>
+                        <li>RFID RC522</li>
+                        <li>Sensor de peso</li>
+                        <li>Servomotor</li>
+                        <li>Pantalla LCD I2C</li>
+                        <li>LEDs</li>
+                        <li>Página web</li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
